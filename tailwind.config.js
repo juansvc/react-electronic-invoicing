@@ -20,6 +20,16 @@ module.exports = {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+      colors: {
+        blue: {
+          DEFAULT: '#2563eb',
+          500: '#2563eb',
+        },
+        pink: {
+          DEFAULT: '#e5007e',
+          500: '#e5007e',
+        },
+      },
       borderRadius: {
         '4xl': '2rem',
       },
