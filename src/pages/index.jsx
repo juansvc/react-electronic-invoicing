@@ -17,7 +17,7 @@ export default function Home() {
         <title>Tfactura - Sistema de facturación electrónica</title>
         <meta
           name="description"
-          content="Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited."
+          content="Tfactura - Sistema de facturación electrónica."
         />
       </Head>
       <Header />
