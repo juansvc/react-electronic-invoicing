@@ -88,12 +88,12 @@ export function Testimonials() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Loved by businesses worldwide.
+            Preferido por grandes empresas.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our software is so simple that people can’t help but fall in love
-            with it. Simplicity is easy when you just skip tons of
-            mission-critical features.
+            Nuestro software es tan sencillo que la gente no puede evitar
+            enamorarse de él. La simplicidad es fácil cuando se omiten
+            toneladas de características de no importancia crítica.
           </p>
         </div>
         <ul

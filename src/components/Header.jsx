@@ -77,11 +77,11 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="#features">Features</MobileNavLink>
-            <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
-            <MobileNavLink href="#pricing">Pricing</MobileNavLink>
+            <MobileNavLink href="#features">Características</MobileNavLink>
+            <MobileNavLink href="#testimonials">Testimonios</MobileNavLink>
+            <MobileNavLink href="#pricing">Precios</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/login">Sign in</MobileNavLink>
+            <MobileNavLink href="/login">Ingresar</MobileNavLink>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -99,18 +99,18 @@ export function Header() {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Pricing</NavLink>
+              <NavLink href="#features">Características</NavLink>
+              <NavLink href="#testimonials">Testimonios</NavLink>
+              <NavLink href="#pricing">Precios</NavLink>
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <NavLink href="/login">Sign in</NavLink>
+              <NavLink href="/login">Ingresar</NavLink>
             </div>
             <Button href="/register" color="blue">
               <span>
-                Get started <span className="hidden lg:inline">today</span>
+                Crear cuenta
               </span>
             </Button>
             <div className="-mr-1 md:hidden">
