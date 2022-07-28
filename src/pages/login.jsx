@@ -10,7 +10,7 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Sign In - TaxPal</title>
+        <title>Ingreso - Tfactura</title>
       </Head>
       <AuthLayout>
         <div className="flex flex-col">
@@ -19,46 +19,48 @@ export default function Login() {
           </Link>
           <div className="mt-20">
             <h2 className="text-lg font-semibold text-gray-900">
-              Sign in to your account
+              Ingresa a tu cuenta
             </h2>
             <p className="mt-2 text-sm text-gray-700">
-              Don’t have an account?{' '}
+              No tienes una?{' '}
               <Link
                 href="/register"
                 className="font-medium text-pink-500 hover:underline"
               >
-                Sign up
+                Registrate
               </Link>{' '}
-              for a free trial.
+              en una prueba gratuita.
             </p>
           </div>
         </div>
         <form action="#" className="mt-10 grid grid-cols-1 gap-y-8">
           <TextField
-            label="Email address"
+            label="Correo electrónico"
             id="email"
             name="email"
             type="email"
             autoComplete="email"
+            placeholder="Ingresa tu correo electrónico"
             required
           />
           <TextField
-            label="Password"
+            label="Contraseña"
             id="password"
             name="password"
             type="password"
             autoComplete="current-password"
+            placeholder="Ingresa tu contraseña"
             required
           />
           <div>
             <Button
               type="submit"
               variant="solid"
-              color="blue"
+              color="slate"
               className="w-full"
             >
               <span>
-                Sign in <span aria-hidden="true">&rarr;</span>
+                Ingresar
               </span>
             </Button>
           </div>

@@ -19,17 +19,17 @@ export default function Register() {
           </Link>
           <div className="mt-20">
             <h2 className="text-lg font-semibold text-gray-900">
-              Get started for free
+              Empieza gratis
             </h2>
             <p className="mt-2 text-sm text-gray-700">
-              Already registered?{' '}
+              Ya estás registrado?{' '}
               <Link
                 href="/login"
                 className="font-medium text-pink-500 hover:underline"
               >
-                Sign in
+                Ingresa
               </Link>{' '}
-              to your account.
+              a tu cuenta.
             </p>
           </div>
         </div>
@@ -38,7 +38,7 @@ export default function Register() {
           className="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2"
         >
           <TextField
-            label="First name"
+            label="Nombre *"
             id="first_name"
             name="first_name"
             type="text"
@@ -46,7 +46,7 @@ export default function Register() {
             required
           />
           <TextField
-            label="Last name"
+            label="Apellido *"
             id="last_name"
             name="last_name"
             type="text"
@@ -55,7 +55,7 @@ export default function Register() {
           />
           <TextField
             className="col-span-full"
-            label="Email address"
+            label="Correo electrónico *"
             id="email"
             name="email"
             type="email"
@@ -64,33 +64,68 @@ export default function Register() {
           />
           <TextField
             className="col-span-full"
-            label="Password"
+            label="Contraseña *"
             id="password"
             name="password"
             type="password"
             autoComplete="new-password"
             required
           />
+          <TextField
+            className="col-span-full"
+            label="Razón social *"
+            id="razon_social"
+            name="razon_social"
+            type="text"
+            required
+          />
+          <TextField
+            label="RUC *"
+            id="ruc"
+            name="ruc"
+            type="text"
+            required
+          />
+          <TextField
+            label="Número celular *"
+            id="celular"
+            name="celular"
+            type="number"
+            required
+          />
           <SelectField
             className="col-span-full"
-            label="How did you hear about us?"
-            id="referral_source"
-            name="referral_source"
+            label="Tipo de régimen *"
+            id="tipo_regimen"
+            name="tipo_regimen"
+            required
           >
-            <option>AltaVista search</option>
-            <option>Super Bowl commercial</option>
-            <option>Our route 34 city bus ad</option>
-            <option>The “Never Use This” podcast</option>
+            <option>Régimen Rimpe Emprendedor</option>
+            <option>Régimen General</option>
+            <option>Desconozco</option>
+          </SelectField>
+          <SelectField
+            className="col-span-full"
+            label="Tipo de plan"
+            id="tipo_plan"
+            name="tipo_plan"
+          >
+            <option>LITE</option>
+            <option>F20</option>
+            <option>F50</option>
+            <option>F100</option>
+            <option>F-ilimitado</option>
+            <option>Contable</option>
           </SelectField>
           <div className="col-span-full">
             <Button
               type="submit"
               variant="solid"
-              color="blue"
+              color="slate"
               className="w-full"
             >
               <span>
-                Sign up <span aria-hidden="true">&rarr;</span>
+                Crear cuenta
               </span>
             </Button>
           </div>
