@@ -2,12 +2,16 @@ import Image from 'next/future/image'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import logoLaravel from '@/images/logos/laravel.svg'
-import logoMirage from '@/images/logos/mirage.svg'
-import logoStatamic from '@/images/logos/statamic.svg'
-import logoStaticKit from '@/images/logos/statickit.svg'
-import logoTransistor from '@/images/logos/transistor.svg'
-import logoTuple from '@/images/logos/tuple.svg'
+import logo1 from '@/images/logos/1.svg'
+import logo2 from '@/images/logos/2.svg'
+import logo3 from '@/images/logos/3.svg'
+import logo4 from '@/images/logos/4.svg'
+import logo5 from '@/images/logos/5.svg'
+import logo6 from '@/images/logos/6.svg'
+import logo7 from '@/images/logos/7.svg'
+import logo8 from '@/images/logos/8.svg'
+import logo9 from '@/images/logos/9.svg'
+import logo10 from '@/images/logos/10.svg'
 
 export function Hero() {
   return (
@@ -56,14 +60,18 @@ export function Hero() {
         >
           {[
             [
-              { name: 'Transistor', logo: logoTransistor },
-              { name: 'Tuple', logo: logoTuple },
-              { name: 'StaticKit', logo: logoStaticKit },
+              { name: '1', logo: logo1 },
+              { name: '2', logo: logo2 },
+              { name: '3', logo: logo3 },
+              { name: '4', logo: logo4 },
+              { name: '5', logo: logo5 },
             ],
             [
-              { name: 'Mirage', logo: logoMirage },
-              { name: 'Laravel', logo: logoLaravel },
-              { name: 'Statamic', logo: logoStatamic },
+              { name: '6', logo: logo6 },
+              { name: '7', logo: logo7 },
+              { name: '8', logo: logo8 },
+              { name: '9', logo: logo9 },
+              { name: '10', logo: logo10 },
             ],
           ].map((group, groupIndex) => (
             <li key={groupIndex}>
