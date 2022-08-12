@@ -12,8 +12,30 @@ import logo7 from '@/images/logos/7.svg'
 import logo8 from '@/images/logos/8.svg'
 import logo9 from '@/images/logos/9.svg'
 import logo10 from '@/images/logos/10.svg'
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
 
 export function Hero() {
+  const handleDragStart = (e) => e.preventDefault()
+  const items = [
+    <Image key={1} src={logo1} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={2} src={logo2} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={3} src={logo3} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={4} src={logo4} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={5} src={logo5} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={6} src={logo6} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={7} src={logo7} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={8} src={logo8} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={9} src={logo9} onDragStart={handleDragStart} alt="" role="presentation" />,
+    <Image key={10} src={logo10} onDragStart={handleDragStart} alt="" role="presentation" />,
+  ]
+
+  const responsive = {
+    0: { items: 2 },
+    568: { items: 4 },
+    1024: { items: 6 },
+  }
+
   return (
     <Container className="pt-20 pb-16 text-center lg:pt-32">
       <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
@@ -33,7 +55,9 @@ export function Hero() {
         negocio o persona.
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-        Tfactura te permite agilizar el proceso de facturación.
+      Tfactura es de fácil manejo e intuitivo, una poderosa herramienta que transforma tu negocio. Todos los documentos electrónicos son autorizados por el SRI (facturas, retenciones, notas de crédito, guías de remisión y más..)
+      Ofrecemos soluciones automatizadas para el control y simplificación de los procesos contables, comerciales, administrativos y gerenciales de pequeñas y medianas empresas.
+      ¡¡Este es el momento de explorar un sistema de última generación!!
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
         <Button href="/register">Obten un mes de prueba</Button>
@@ -52,41 +76,23 @@ export function Hero() {
       </div>
       <div className="mt-36 lg:mt-44">
         <p className="font-display text-base text-slate-900">
-          Empresas que confian en nuestros servicios
+          Empresas ecuatorianas que confían y trabajan diariamente con Tfactura
         </p>
         <ul
           role="list"
           className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
         >
-          {[
-            [
-              { name: '1', logo: logo1 },
-              { name: '2', logo: logo2 },
-              { name: '3', logo: logo3 },
-              { name: '4', logo: logo4 },
-              { name: '5', logo: logo5 },
-            ],
-            [
-              { name: '6', logo: logo6 },
-              { name: '7', logo: logo7 },
-              { name: '8', logo: logo8 },
-              { name: '9', logo: logo9 },
-              { name: '10', logo: logo10 },
-            ],
-          ].map((group, groupIndex) => (
-            <li key={groupIndex}>
-              <ul
-                role="list"
-                className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
-              >
-                {group.map((company) => (
-                  <li key={company.name} className="flex">
-                    <Image src={company.logo} alt={company.name} unoptimized />
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
+          <AliceCarousel 
+            autoPlay
+            autoPlayStrategy="none"
+            autoPlayInterval={2000}
+            animationDuration={1000}
+            infinite
+            responsive={responsive}
+            touchTracking={false}
+            disableDotsControls
+            disableButtonsControls
+            items={items} />
         </ul>
       </div>
     </Container>

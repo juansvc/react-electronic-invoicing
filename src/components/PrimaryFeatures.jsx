@@ -12,27 +12,27 @@ import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Facturas',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      "Nuestro sistema te ayudará agilizar el proceso de ventas de tu negocio. Tfactura es totalmente intuitivo, agiliza tus procesos en crear facturas, cotizaciones, guías de remisión, retenciones, liquidación de compras, notas de débito, notas de crédito.",
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: 'Productos y Servicios',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      "Fácil creación de productos y servicios, manejo de stock e inventarios que se adaptan a todos los tipos de negocios.",
     image: screenshotExpenses,
   },
   {
-    title: 'VAT handling',
+    title: 'Clientes y Proveedores',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      "Maneja de forma ágil la información completa de los clientes y proveedores.",
     image: screenshotVatReturns,
   },
   {
-    title: 'Reporting',
+    title: 'Contabilidad',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+      'La contabilidad en Tfactura esta basada en reglas preconfiguradas en donde la información contable se va generando automáticamente por detrás, sin requerir esfuerzos adicionales en la operación habitual de los procesos cotidianos del negocio. El módulo de contabilidad está presente en planes personalizado.',
     image: screenshotReporting,
   },
 ]
@@ -72,11 +72,11 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Características de los módulos del Sistema de Facturación Electrónica TFactura.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
+            Mantiene tus cuentas bajo control para el buen funcionamiento de tu negocio. <br/>
+            Si buscas un control más eficiente para tu negocio, mejorar la administración, ser más competitivo, agilizar procesos, reducir error humano, centralizar la información en un solo lugar para tener acceso a ella fácilmente  y  aumentar tus ventas.  Con un sistema para punto de venta lo podes lograr.
           </p>
         </div>
         <Tab.Group
