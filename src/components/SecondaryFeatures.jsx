@@ -13,7 +13,7 @@ const features = [
     name: 'Facturas',
     summary: 'Crea tus facturas de forma más cómoda y sencilla.',
     description:
-      'Tfactura lite permite agregar productos y clientes que se cargan automáticamente al realizar la factura de venta, para luego poder ser enviado a autorizar al SRI y al correo del cliente.',
+      'TFactura lite permite agregar productos y clientes que se cargan automáticamente al realizar la factura de venta, para luego poder ser enviado a autorizar al SRI y al correo del cliente.',
     image: screenshotProfitLoss,
     icon: function ReportingIcon() {
       let id = useId()
@@ -47,7 +47,7 @@ const features = [
     name: 'Compañía',
     summary: 'Agrega tu firma electrónica y datos de tu compañía.',
     description:
-      'Tfactura lite te permite agregar tu firma, clave y demás datos de tu empresa de una manera muy sencilla, te permite gestionar los puntos de venta y establecimientos que manejes.',
+      'TFactura lite te permite agregar tu firma, clave y demás datos de tu empresa de una manera muy sencilla, te permite gestionar los puntos de venta y establecimientos que manejes.',
     image: screenshotInventory,
     icon: function InventoryIcon() {
       return (
@@ -74,7 +74,7 @@ const features = [
     name: 'Formatos de Impresión',
     summary: 'Contamos con una variedad de Formatos de Impresión',
     description:
-      'Tfactura lite dispone de formatos que se adaptan a tu impresora, A4, A5, tirilla y muchos más. Además, personalizamos los formatos de impresión acorde a tus necesidades.',
+      'TFactura lite dispone de formatos que se adaptan a tu impresora, A4, A5, tirilla y muchos más. Además, personalizamos los formatos de impresión acorde a tus necesidades.',
     image: screenshotContacts,
     icon: function ContactsIcon() {
       return (
@@ -212,12 +212,12 @@ export function SecondaryFeatures() {
       className='pt-20 pb-14 sm:pb-20 sm:pt-32 lg:pb-32'
     >
       <Container>
-        <div className='mx-auto max-w-2xl md:text-center'>
+        <div className='mx-auto max-w-3xl md:text-center'>
           <h2 className='font-display text-3xl tracking-tight text-slate-900 sm:text-4xl'>
-            Tfactura LITE
+            TFactura LITE
           </h2>
           <p className='mt-4 text-lg tracking-tight text-slate-700'>
-            Tfactura lite nace como una solución para los contribuyentes no
+            TFactura lite nace como una solución para los contribuyentes no
             obligados a llevar contabilidad que solo necesitan realizar
             únicamente facturas de venta, como es el caso de servicios
             profesionales, transportistas, arriendos de bienes inmuebles entre
