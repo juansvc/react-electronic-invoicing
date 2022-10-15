@@ -9,6 +9,7 @@ import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
+import { ScrollToTop } from '@/components/ScrollToTop'
 
 export default function Home() {
   const Hero = dynamic(() => import('@/components/Hero'), { ssr: false })
@@ -23,10 +24,11 @@ export default function Home() {
       </Head>
       <Header />
       <main>
+        <ScrollToTop />
         <Hero />
         <PrimaryFeatures />
         <SecondaryFeatures />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Pricing />
         <Faqs />
         <CallToAction />
