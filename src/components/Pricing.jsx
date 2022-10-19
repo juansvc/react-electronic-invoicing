@@ -1,7 +1,43 @@
+import * as React from 'react'
+import PropTypes from 'prop-types'
 import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+
+import { useTheme } from '@mui/material/styles'
+import SwipeableViews from 'react-swipeable-views'
+import AppBar from '@mui/material/AppBar'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props
+
+  return (
+    <div
+      role='tabpanel'
+      hidden={value !== index}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  )
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+}
 
 function SwirlyDoodle({ className }) {
   return (
@@ -46,7 +82,15 @@ function CheckIcon({ className }) {
   )
 }
 
-function Plan({ name, price, description, href, features, featured = false }) {
+function Plan({
+  name,
+  price,
+  description,
+  href,
+  features,
+  featured = false,
+  title = false,
+}) {
   return (
     <section
       className={clsx(
@@ -69,31 +113,46 @@ function Plan({ name, price, description, href, features, featured = false }) {
       <ul
         role='list'
         className={clsx(
-          'order-last mt-10 flex flex-col gap-y-3 text-sm',
-          featured ? 'text-white' : 'text-slate-200'
+          'order-last flex flex-col gap-y-3 text-sm',
+          featured ? 'text-white' : 'text-slate-200',
+          title ? 'mt-0' : 'mt-10'
         )}
       >
-        {features.map((feature) => (
+        {features?.map((feature) => (
           <li key={feature} className='flex'>
             <CheckIcon className={featured ? 'text-white' : 'text-slate-400'} />
             <span className='ml-4'>{feature}</span>
           </li>
         ))}
       </ul>
-      <Button
-        href={href}
-        variant={featured ? 'solid' : 'outline'}
-        color='white'
-        className='mt-8'
-        aria-label={`Get started with ${name} plan for ${price}`}
-      >
-        Empieza Ya!
-      </Button>
+
+      {!title && (
+        <Button
+          href={href}
+          variant={featured ? 'solid' : 'outline'}
+          color='white'
+          className='mt-8'
+          aria-label={`Get started with ${name} plan for ${price}`}
+        >
+          Empieza Ya!
+        </Button>
+      )}
     </section>
   )
 }
 
 export function Pricing() {
+  const theme = useTheme()
+  const [value, setValue] = React.useState(0)
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+
+  const handleChangeIndex = (index) => {
+    setValue(index)
+  }
+
   return (
     <section
       id='pricing'
@@ -113,97 +172,180 @@ export function Pricing() {
             No importa el tamaño de su negocio, nuestro software funcionará bien
             para ti.
           </p>
-          <div className='flex justify-center'>
-            <div className='relative mt-6 flex rounded-lg bg-gray-600 p-0.5 sm:mt-8'>
-              <button
-                type='button'
-                className='relative w-1/2 whitespace-nowrap rounded-md border-gray-200 bg-white py-2 text-sm font-medium text-gray-900 shadow-sm focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8'
+
+          <Box
+            sx={{ bgcolor: 'transparent', width: 'auto', marginTop: '3rem' }}
+          >
+            <AppBar position='static' className='bg-transparent'>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor='secondary'
+                textColor='inherit'
+                variant='fullWidth'
+                className='rounded-2xl'
               >
-                TFactura LITE
-              </button>
-              <button
-                type='button'
-                className='relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border border-transparent py-2 text-sm font-medium text-white focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8'
-              >
-                TFactura
-              </button>
-              <button
-                type='button'
-                className='relative ml-0.5 w-1/2 whitespace-nowrap rounded-md border border-transparent py-2 text-sm font-medium text-white focus:z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:w-auto sm:px-8'
-              >
-                TFactura Contabilidad
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className='-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8'>
-          <Plan
-            featured
-            name='F50'
-            price='$9.99 + IVA'
-            description='50 Comprobantes'
-            href='/register'
-            features={[
-              'Autorización de Facturas de venta',
-              'Varios establecimientos con el mismo ruc',
-              'Varios puntos de venta',
-            ]}
-          />
-          <Plan
-            name='F100'
-            price='$18 + IVA'
-            description='100 Comprobantes'
-            href='/register'
-            features={[
-              'Autorización de Facturas de venta',
-              'Varios establecimientos con el mismo ruc',
-              'Varios puntos de venta',
-            ]}
-          />
-          <Plan
-            name='F200'
-            price='$30 + IVA'
-            description='200 Comprobantes'
-            href='/register'
-            features={[
-              'Autorización de Facturas de venta',
-              'Varios establecimientos con el mismo ruc',
-              'Varios puntos de venta',
-            ]}
-          />
-          <Plan
-            name='F500'
-            price='$50 + IVA'
-            description='500 Comprobantes'
-            href='/register'
-            features={[
-              'Autorización de Facturas de venta',
-              'Varios establecimientos con el mismo ruc',
-              'Varios puntos de venta',
-            ]}
-          />
-          <Plan
-            name='F1000'
-            price='$70 + IVA'
-            description='1000 Comprobantes'
-            href='/register'
-            features={[
-              'Autorización de Facturas de venta',
-              'Varios establecimientos con el mismo ruc',
-              'Varios puntos de venta',
-            ]}
-          />
-          <Plan
-            name='Ilimitados'
-            price='$70 + IVA'
-            description='Comprobantes Ilimitados'
-            href='/register'
-            features={[
-              'Autorización de Facturas de venta',
-              'Varios establecimientos con el mismo ruc',
-              'Varios puntos de venta',
-            ]}
-          />
+                <Tab
+                  label='TFactura LITE'
+                  className='relative w-1/2 whitespace-nowrap bg-white py-2 text-sm font-medium text-gray-900 shadow-sm focus:z-10 sm:w-auto sm:px-8'
+                />
+                <Tab
+                  label='TFactura'
+                  className='relative w-1/2 whitespace-nowrap bg-white py-2 text-sm font-medium text-gray-900 shadow-sm focus:z-10 sm:w-auto sm:px-8'
+                />
+                <Tab
+                  label='TFactura Contabilidad'
+                  className='relative w-1/2 whitespace-nowrap bg-white py-2 text-sm font-medium text-gray-900 shadow-sm focus:z-10 sm:w-auto sm:px-8'
+                />
+              </Tabs>
+            </AppBar>
+            <SwipeableViews
+              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+              index={value}
+              onChangeIndex={handleChangeIndex}
+            >
+              <TabPanel value={value} index={0} dir={theme.direction}>
+                <div className='-mx-4 mt-6 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8'>
+                  <Plan
+                    title
+                    features={['Autorización de Facturas de venta']}
+                  />
+                  <Plan
+                    title
+                    features={['Varios establecimientos con el mismo ruc']}
+                  />
+                  <Plan title features={['Varios puntos de venta']} />
+                </div>
+                <div className='-mx-4 mt-6 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8'>
+                  <Plan
+                    featured
+                    name='F50'
+                    price='$9.99 + IVA'
+                    description='50 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='F100'
+                    price='$18 + IVA'
+                    description='100 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='F200'
+                    price='$30 + IVA'
+                    description='200 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='F500'
+                    price='$50 + IVA'
+                    description='500 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='F1000'
+                    price='$70 + IVA'
+                    description='1000 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='Ilimitados'
+                    price='$99 + IVA'
+                    description='Comprobantes Ilimitados'
+                    href='/register'
+                  />
+                </div>
+              </TabPanel>
+              <TabPanel value={value} index={1} dir={theme.direction}>
+                <div className='-mx-4 mt-6 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8'>
+                  <Plan
+                    title
+                    features={[
+                      'Facturas y notas de credito',
+                      'Creación de productos y servicios',
+                      'Creación de clientes y proveedores',
+                    ]}
+                  />
+                  <Plan
+                    title
+                    features={[
+                      'Cotizaciones',
+                      'Reportes personalizables',
+                      'Actualizaciones permanentes',
+                    ]}
+                  />
+                  <Plan title features={['Soporte Técnico ilimitado']} />
+                </div>
+                <div className='-mx-4 mt-6 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-4 xl:mx-0 xl:gap-x-8'>
+                  <Plan
+                    featured
+                    name='F20'
+                    price='$59.90 + IVA'
+                    description='240 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='F50'
+                    price='$89.90 + IVA'
+                    description='600 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='F100'
+                    price='$109.90 + IVA'
+                    description='600 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='FIlimitado'
+                    price='$200 + IVA'
+                    description='Comprobantes Ilimitados'
+                    href='/register'
+                  />
+                </div>
+              </TabPanel>
+              <TabPanel value={value} index={2} dir={theme.direction}>
+                <div className='-mx-4 mt-6 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8'>
+                  <Plan
+                    title
+                    features={['Cuentas por cobrar', 'Cuentas por pagar']}
+                  />
+                  <Plan
+                    title
+                    features={[
+                      'Comprobantes de Ingreso',
+                      'Comprobantes de Egreso',
+                    ]}
+                  />
+                  <Plan
+                    title
+                    features={['Inventarios y Reportes', 'Cierres de Caja']}
+                  />
+                </div>
+                <div className='-mx-4 mt-6 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8'>
+                  <Plan
+                    featured
+                    name='Microempresa'
+                    price='$420 + IVA'
+                    description='50 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='Pymes'
+                    price='$660 + IVA'
+                    description='100 Comprobantes'
+                    href='/register'
+                  />
+                  <Plan
+                    name='Empresarial'
+                    price='$720 + IVA'
+                    description='200 Comprobantes'
+                    href='/register'
+                  />
+                </div>
+              </TabPanel>
+            </SwipeableViews>
+          </Box>
         </div>
       </Container>
     </section>
