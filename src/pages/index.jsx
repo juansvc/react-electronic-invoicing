@@ -8,8 +8,9 @@ import { Header } from '@/components/Header'
 import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
-import { Testimonials } from '@/components/Testimonials'
+// import { Testimonials } from '@/components/Testimonials'
 import { ScrollToTop } from '@/components/ScrollToTop'
+import { Tips } from '@/components/Tips'
 
 export default function Home() {
   const Hero = dynamic(() => import('@/components/Hero'), { ssr: false })
@@ -32,6 +33,7 @@ export default function Home() {
         <Pricing />
         <Faqs />
         <CallToAction />
+        <Tips />
       </main>
       <Footer />
     </>
