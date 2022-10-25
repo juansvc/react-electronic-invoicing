@@ -13,19 +13,19 @@ export default function Login() {
         <title>Ingreso - Tfactura</title>
       </Head>
       <AuthLayout>
-        <div className="flex flex-col">
-          <Link href="/" aria-label="Home">
-            <Logo className="h-10 w-auto" />
+        <div className='flex flex-col'>
+          <Link href='/' aria-label='Home'>
+            <Logo className='h-10 w-auto' />
           </Link>
-          <div className="mt-20">
-            <h2 className="text-lg font-semibold text-gray-900">
+          <div className='mt-20'>
+            <h2 className='text-lg font-semibold text-gray-900'>
               Ingresa a tu cuenta
             </h2>
-            <p className="mt-2 text-sm text-gray-700">
+            <p className='mt-2 text-sm text-gray-700'>
               No tienes una?{' '}
               <Link
-                href="/register"
-                className="font-medium text-pink-500 hover:underline"
+                href='/register'
+                className='font-medium text-pink-500 hover:underline'
               >
                 Registrate
               </Link>{' '}
@@ -33,35 +33,33 @@ export default function Login() {
             </p>
           </div>
         </div>
-        <form action="#" className="mt-10 grid grid-cols-1 gap-y-8">
+        <form action='#' className='mt-10 grid grid-cols-1 gap-y-8'>
           <TextField
-            label="Correo electrónico"
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            placeholder="Ingresa tu correo electrónico"
+            label='Correo electrónico'
+            id='email'
+            name='email'
+            type='email'
+            autoComplete='email'
+            placeholder='Ingresa tu correo electrónico'
             required
           />
           <TextField
-            label="Contraseña"
-            id="password"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            placeholder="Ingresa tu contraseña"
+            label='Contraseña'
+            id='password'
+            name='password'
+            type='password'
+            autoComplete='current-password'
+            placeholder='Ingresa tu contraseña'
             required
           />
           <div>
             <Button
-              type="submit"
-              variant="solid"
-              color="slate"
-              className="w-full"
+              type='submit'
+              variant='solid'
+              color='slate'
+              className='w-full'
             >
-              <span>
-                Ingresar
-              </span>
+              <span>Ingresar</span>
             </Button>
           </div>
         </form>
