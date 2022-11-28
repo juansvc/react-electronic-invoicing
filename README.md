@@ -1,6 +1,6 @@
 # Tfactura
 
-Electronic invoicing in Ecuador
+React web app for Electronic invoicing in Ecuador
 
 ## Getting started
 
